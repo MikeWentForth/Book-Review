@@ -10,5 +10,8 @@ const sequelize = new Sequelize(
     port: 3306
   }
 );
+console.log("DB_NAME:", process.env.DB_NAME);
+console.log("DB_USER:", process.env.DB_USER);
+console.log("DB_PW:", process.env.DB_PW);
 
 module.exports = sequelize;
