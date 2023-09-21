@@ -7,6 +7,8 @@ const hbs = exphbs.create({});
 const path = require('path');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const gracefulShutdown = require('http-graceful-shutdown');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -37,5 +39,9 @@ app.use(session(sess));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening on port:', PORT));
+  const server = app.listen(PORT, () => {
+    console.log('Now listening on port:', PORT);
+  });
+
+  gracefulShutdown(server);
 });
