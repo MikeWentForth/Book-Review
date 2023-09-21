@@ -17,8 +17,7 @@ Review.init(
                 max: 5,
             },
         },
-
-        description: {
+        review_text: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -31,6 +30,18 @@ Review.init(
             allowNull: true,
         },
 
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
+        review_id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
         sequelize,
         timestamps: true,
         modelName: 'review',

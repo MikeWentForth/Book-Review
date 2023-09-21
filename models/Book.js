@@ -25,10 +25,18 @@ Book.init(
             type: DataTypes.STRING,
             allowNull: true,
         },
+        publish_date: {
+            type: DataTypes.DATE,
+            allowNull: true,
+        },
+        isbn: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
 
         sequelize,
         timestamps: true,
-        modelName: 'review',
+        modelName: 'book',
         underscored: true,
     }
 );
