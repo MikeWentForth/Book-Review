@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Sample Book 1",
+    "rating": 5,
+    "review_text": "I loved this book!",
+    "coverImage": "book1.jpg",
+    "genre": "Fiction"
+  },
+  {
+    "title": "Sample Book 2",
+    "rating": 4,
+    "review_text": "This book was quite interesting.",
+    "coverImage": "book2.jpg",
+    "genre": "Mystery"
+  },
+  {
+    "title": "Sample Book 3",
+    "rating": 2,
+    "review_text": "I expected more from this book.",
+    "coverImage": "book3.jpg",
+    "genre": "Non-fiction"
+  }
+]
