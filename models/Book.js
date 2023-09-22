@@ -32,8 +32,9 @@ Book.init(
         isbn: {
             type: DataTypes.STRING,
             allowNull: true,
-        },
-
+        }
+    },
+    {
         sequelize,
         timestamps: true,
         modelName: 'book',
