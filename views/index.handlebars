@@ -1,2 +1,23 @@
-<h1>Test Body</h1>
-<p>Test the main.handlebars template</p>
+<!--
+        Common body content.
+        Column of buttons on left.
+        Book review content in center-right.
+    -->
+
+<div class="container"> <!-- main container -->
+    <div class="row"> <!-- row -->
+        <div class="col"> <!-- left button menu -->
+            <h3 class="""">Sort Output By...</h3>
+            <button class="btn btn-outline-success w-100 mb-2" type="submit">Most Recent</button>
+            <button class="btn btn-outline-success w-100 mb-2" type="submit">Highest Rated</button>
+            <button class="btn btn-outline-success w-100 mb-2" type="submit">Lowest Rated</button>
+
+        </div>
+        <div class="col-9 bg-light" id="customContent"> <!-- Book review area -->
+            <h3>To get started...</h3>
+            <p>Enter a title in the search box, or click one of the sorting buttons on the left to begin.</p>
+            <p>You may also add a book by clicking the "Add Book" button, above.</p>
+        
+        </div>
+    </div>
+</div>

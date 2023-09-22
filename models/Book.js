@@ -32,8 +32,12 @@ Book.init(
         isbn: {
             type: DataTypes.STRING,
             allowNull: true,
-        },
+        }
+    },
 
+    // Restructured the model so that modifiers/options appear in a separate {} section 
+    // in keeping with sequelize manual and prior working projects.
+    {
         sequelize,
         timestamps: true,
         modelName: 'book',
