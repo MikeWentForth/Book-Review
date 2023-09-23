@@ -38,7 +38,14 @@ Book.init(
         isbn: {
             type: DataTypes.STRING,
             allowNull: true,
-        }
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
     },
     // Restructured the model so that modifiers/options appear in a separate {} section 
     // in keeping with sequelize manual and prior working projects.
