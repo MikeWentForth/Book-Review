@@ -34,7 +34,6 @@ Book.init(
             allowNull: true,
         }
     },
-
     // Restructured the model so that modifiers/options appear in a separate {} section 
     // in keeping with sequelize manual and prior working projects.
     {

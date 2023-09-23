@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Sample Book 1",
+        "author": "Author 1",
+        "description": "This is the description of Sample Book 1.",
+        "coverImage": "sample-cover-1.jpg",
+        "genre": "Fiction",
+        "publish_date": "2023-09-20",
+        "isbn": "1234567890"
+    },
+    {
+        "title": "Sample Book 2",
+        "author": "Author 2",
+        "description": "This is the description of Sample Book 2.",
+        "coverImage": "sample-cover-2.jpg",
+        "genre": "Mystery",
+        "publish_date": "2023-09-21",
+        "isbn": "9876543210"
+    },
+    {
+        "title": "Sample Book 3",
+        "author": "Author 3",
+        "description": "This is the description of Sample Book 3.",
+        "coverImage": "sample-cover-3.jpg",
+        "genre": "Non-fiction",
+        "publish_date": "2023-09-22",
+        "isbn": "5678901234"
+    }
+]
