@@ -42,6 +42,8 @@ Review.init(
             primaryKey: true,
             autoIncrement: true,
         },
+    },
+    {
         sequelize,
         timestamps: true,
         modelName: 'review',

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-//const { User, Reviews } = require('../../models'); uncomment once Models have been created
+const { User } = require('../../models');// uncomment once Models have been created
 
 
 router.post('/', async (req, res) => {
