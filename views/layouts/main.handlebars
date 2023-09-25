@@ -25,7 +25,12 @@
   <div class="container">
 
   <div class="position-relative">
+    {{#if loggedIn}}
+    <button type="button" id="logout" class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Logout</button>
+    {{else}}
+    <button type="button" id="signUp" class="btn btn-primary position-relative top-40 end-20 translate-middle-y">Sign Up</button>
     <button type="button" id="login" class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Login!</button>
+    {{/if}}
     <h1 class="text-center mb-3">Book Worm Library</h1>
   </div>
 
@@ -48,8 +53,8 @@
 
          <button type="button" id="addBook" class="btn btn-primary">Add Book</button>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" id="input" type="search" placeholder="Title" aria-label="Search">
-        <button class="btn btn-outline-success" id="submit" type="submit">Search</button>
+        <input class="form-control me-2" id="searchInputField" type="search" placeholder="Title" aria-label="Search">
+        <button class="btn btn-outline-success" id="search" type="submit">Search</button>
       </form>
     </div>
   </nav>
