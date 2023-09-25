@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const { User, Review } = require('../../models');
 
-
-//uncomment if we are showing the user reviews in the user UI
-// GET all user reviews *if feature is approved
+// GET all user reviews
 router.get('/', /*withAuth,*/ async (req, res) => {
     try {
         const reviewsData = await Review.findAll({
@@ -18,12 +16,10 @@ router.get('/', /*withAuth,*/ async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-// // GET a single review *if feature is approved
+// GET a single review
 router.get('/:id', /*withAuth,*/ async (req, res) => {
     try {
         const reviewsData = await Review.findByPk(req.params.id, {
-            // JOIN with locations, using the Trip through table
             include: [{ model: Review }]
         });
 
@@ -72,3 +68,22 @@ router.delete('/:id',/*withAuth,*/ async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// API TESTING ROUTE - uncomment line below and comment above if testing backend only
+
+// router.get('/', /*withAuth,*/ async (req, res) => {
+//     try {
+//         const reviewsData = await Review.findAll({
+//             include: [{
+//                 model: User,
+//                 attributes: ['name'],
+//             },],
+//         });
+
+//         // Instead of rendering a view, send the data as JSON
+//         res.status(200).json(reviewsData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+module.exports = router;
