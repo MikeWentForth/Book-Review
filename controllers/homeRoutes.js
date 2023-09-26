@@ -1,19 +1,16 @@
 const router = require('express').Router();
 const { Review, User } = require('../models');
+const asyncHandler = require('express-async-handler');
 
-router.get('/', async (req, res) => {
-    try {
-        const reviewsData = await Review.findAll({
-            include: [{
-                model: User,
-                attributes: ['name'],
-            },],
-        });
-        const reviews = reviewsData.map((reviews) => reviews.get({ plain: true }));
-        res.render('homepage', { reviews: reviewsData });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.get('/', asyncHandler(async (req, res) => {
+    const reviewsData = await Review.findAll({
+        include: [{
+            model: User,
+            attributes: ['name'],
+        }],
+    });
+    const reviews = reviewsData.map((reviews) => reviews.get({ plain: true }));
+    res.render('homepage', { reviews: reviewsData });
+}));
 
-//if homepage will consist of user reviews right away, please uncomment
+module.exports = router;
