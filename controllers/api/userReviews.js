@@ -1,23 +1,20 @@
 const router = require('express').Router();
 const { User, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+const asyncHandler = require('express-async-handler');
 
 // GET all user reviews
-router.get('/', withAuth, async (req, res) => {
-    try {
-        const reviewsData = await Review.findAll({
-            include: [{
-                model: User,
-                attributes: ['name'],
-            },],
-        });
-        const reviews = reviewsData.map((reviews) => reviews.get({ plain: true }));
-        res.render('homepage', { reviews: reviewsData });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.get('/', withAuth, asyncHandler(async (req, res) => {
+    const reviewsData = await Review.findAll({
+        include: [{
+            model: User,
+            attributes: ['name'],
+        },],
+    });
+    const reviews = reviewsData.map((reviews) => reviews.get({ plain: true }));
+    res.render('homepage', { reviews: reviewsData });
+}));
+
 // GET a single review
 router.get('/:id', withAuth, async (req, res) => {
     try {
@@ -26,7 +23,7 @@ router.get('/:id', withAuth, async (req, res) => {
         });
 
         if (!reviewsData) {
-            res.status(404).json({ message: 'No traveller found with this id!' });
+            res.status(404).json({ message: 'No review found with this id!' });
             return;
         }
 
@@ -52,7 +49,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // Put method to edit/update their review
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const reviewsData = await Review.findByPk(req.params.id);
         if (!reviewsData) {
@@ -80,8 +77,8 @@ router.delete('/:id', withAuth, async (req, res) => {
                 user_id: req.session.user_id,
             },
         });
-        if (!projectData) {
-            res.status(404).json({ message: 'No project found with this id!' });
+        if (!reviewsData) {
+            res.status(404).json({ message: 'No review found with this id!' });
             return;
         }
 

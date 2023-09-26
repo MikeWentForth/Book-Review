@@ -1,21 +1,16 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const asyncHandler = require('express-async-handler');
 
 
-router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+router.post('/', asyncHandler(async (req, res) => {
+  const userData = await User.create(req.body);
+  req.session.save(() => {
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+    res.status(200).json(userData);
+  });
+}));
 
 // Adding a get-login route to display the login form page when the user
 // clicks the login button on any of the common pages.
@@ -24,7 +19,7 @@ router.get('/login', async (req, res) => {
   // XXXXXX
   // Should test whether already logged in....
 
-  res.render("login",{
+  res.render("login", {
     layout: "main",
     loggedIn: req.session.logged_in === true
   });
@@ -37,7 +32,7 @@ router.get('/signup', async (req, res) => {
   // XXXXXX
   // Should test whether already logged in....
 
-  res.render("signup",{
+  res.render("signup", {
     layout: "main",
     loggedIn: req.session.logged_in === true
   });
