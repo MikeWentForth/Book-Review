@@ -3,11 +3,24 @@
 
 let e;
 
+// Make the banner clickable.
+// Takes the user to the home page when clicked.
+e = document.getElementById("banner");
+if (e) {
+    e.addEventListener("click", function() {
+        location.href = "/";
+    });
+}
+
+
 // LOGIN
 e = document.getElementById("login");
 if (e) {
     e.addEventListener("click", function() {
-        alert("Login was clicked.")
+        // alert("Login was clicked.")
+        // To display the login form do an href-location call to the login route
+        // Login route determines which template to show
+        location.href = "/api/users/login";
     });
 }
 
@@ -23,7 +36,8 @@ if (e) {
 e = document.getElementById("signUp");
 if (e) {
     e.addEventListener("click", function() {
-        alert("Signup was clicked.")
+        //alert("Signup was clicked.")
+        location.href = "/api/users/signup";
     });
 }
 
@@ -70,5 +84,49 @@ if (e) {
         alert("lowest rated was clicked.")
     });
 }
+
+const loginFormHandler = async (event) => {
+  event.preventDefault();
+  const email = document.querySelector('#EMlogin').value.trim();
+  const password = document.querySelector('#PWlogin').value.trim();
+
+  if (email && password) {
+    const response = await fetch('/api/usersRoutes/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/layouts/main'); //no profile page set up yet, change to that once made?
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+const signupFormHandler = async (event) => {
+  event.preventDefault();
+
+  const name = document.querySelector('#nameSU').value.trim();
+  const email = document.querySelector('#emailSU').value.trim();
+  const password = document.querySelector('#pwSU').value.trim();
+
+  if (name && email && password) {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/layouts/main'); //no profile page set up yet, change to that once made?
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+
 
 

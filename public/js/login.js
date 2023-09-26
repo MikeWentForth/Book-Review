@@ -1,3 +1,6 @@
+// Moved these functions to main.js
+
+/*
 const loginFormHandler = async (event) => {
     event.preventDefault();
     const email = document.querySelector('#EMlogin').value.trim();
@@ -39,12 +42,16 @@ const loginFormHandler = async (event) => {
       }
     }
   };
+  */
   
-  document
-    .querySelector('.login')
-    .addEventListener('submit', loginFormHandler);
+  // COMMENTED OUT as event listeners for these buttons are already established
+  // in main.js
+
+  // document
+  //   .querySelector('.login')
+  //   .addEventListener('submit', loginFormHandler);
   
-  document
-    .querySelector('.sign-up')
-    .addEventListener('submit', signupFormHandler);
+  // document
+  //   .querySelector('.sign-up')
+  //   .addEventListener('submit', signupFormHandler);
   
