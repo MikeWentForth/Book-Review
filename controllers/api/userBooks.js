@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const { Review, Book } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', /*withAuth,*/ async (req, res) => {
+
+router.get('/', withAuth, async (req, res) => {
     try {
         // Fetch all books associated with the user
         const booksData = await Book.findAll({
@@ -20,6 +22,7 @@ router.get('/', /*withAuth,*/ async (req, res) => {
         res.status(500).json(err);
     }
 });
+
 
 // API TESTING ROUTE - uncomment line below and comment above if testing backend only
 

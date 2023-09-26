@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const { User, Review } = require('../../models');
+const withAuth = require('../../utils/auth');
+
 
 // GET all user reviews
-router.get('/', /*withAuth,*/ async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const reviewsData = await Review.findAll({
             include: [{
@@ -17,7 +19,7 @@ router.get('/', /*withAuth,*/ async (req, res) => {
     }
 });
 // GET a single review
-router.get('/:id', /*withAuth,*/ async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const reviewsData = await Review.findByPk(req.params.id, {
             include: [{ model: Review }]
@@ -36,23 +38,43 @@ router.get('/:id', /*withAuth,*/ async (req, res) => {
 
 
 // post method
-router.post('/',/*withAuth,*/ async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
-        const newProject = await Review.create({
+        const reviewsData = await Review.create({
             ...req.body,
             user_id: req.session.user_id,
         });
 
-        res.status(200).json(newProject);
+        res.status(200).json(reviewsData);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// Delete Method
-router.delete('/:id',/*withAuth,*/ async (req, res) => {
+// Put method to edit/update their review
+router.put('/:id', async (req, res) => {
     try {
-        const reviewData = await Review.destroy({
+        const reviewsData = await Review.findByPk(req.params.id);
+        if (!reviewsData) {
+            return res.status(404).json({ message: 'No review found with provided ID' })
+        }
+        await Review.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(reviewsData)
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' })
+    }
+});
+
+
+// Delete Method
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        const reviewsData = await Review.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
@@ -63,7 +85,7 @@ router.delete('/:id',/*withAuth,*/ async (req, res) => {
             return;
         }
 
-        res.status(200).json(projectData);
+        res.status(200).json(reviewsData);
     } catch (err) {
         res.status(500).json(err);
     }
