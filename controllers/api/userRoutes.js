@@ -17,6 +17,35 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Adding a get-login route to display the login form page when the user
+// clicks the login button on any of the common pages.
+router.get('/login', async (req, res) => {
+
+  // XXXXXX
+  // Should test whether already logged in....
+
+  res.render("login",{
+    layout: "main",
+    loggedIn: req.session.logged_in === true
+  });
+
+});
+
+// Adding a signup route to display the signup form page....
+router.get('/signup', async (req, res) => {
+
+  // XXXXXX
+  // Should test whether already logged in....
+
+  res.render("signup",{
+    layout: "main",
+    loggedIn: req.session.logged_in === true
+  });
+
+});
+
+
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });

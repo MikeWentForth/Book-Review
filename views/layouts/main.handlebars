@@ -28,10 +28,10 @@
     {{#if loggedIn}}
     <button type="button" id="logout" class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Logout</button>
     {{else}}
-    <button type="button" id="signUp" class="btn btn-primary position-relative top-40 end-20 translate-middle-y">Sign Up</button>
+    <button type="button" id="signUp" class="btn btn-primary position-absolute top-50 translate-middle-y">Sign Up</button>
     <button type="button" id="login" class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Login!</button>
     {{/if}}
-    <h1 class="text-center mb-3">Book Worm Library</h1>
+    <h1 id="banner" class="text-center mb-3">Book Worm Library</h1>
   </div>
 
   <!-- Optional navigation bar -->
@@ -61,7 +61,7 @@
   </div>
 
    <!-- Main content placeholder -->
-  <div>
+  <div class="container">
   {{{body}}}
   </div>
 
