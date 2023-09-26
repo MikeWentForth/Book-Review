@@ -45,6 +45,20 @@ router.get('/signup', async (req, res) => {
 });
 
 
+// Adding a review route to display the review form page....
+router.get('/review', async (req, res) => {
+
+  // XXXXXX
+  // Should test whether already logged in....
+
+  res.render("review",{
+    layout: "main",
+    loggedIn: req.session.logged_in === true
+  });
+
+});
+
+
 
 router.post('/login', async (req, res) => {
   try {
