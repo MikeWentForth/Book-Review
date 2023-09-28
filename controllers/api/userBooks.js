@@ -19,6 +19,20 @@ router.get('/', withAuth, asyncHandler(async (req, res) => {
     res.render('profile', { books, reviews });
 }));
 
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const booksData = await Book.create({
+            ...req.body,
+            user_id: req.session.user_id, // uncomment for testing
+        });
+
+        res.status(200).json(booksData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+
 
 // API TESTING ROUTE - uncomment line below and comment above if testing backend only
 

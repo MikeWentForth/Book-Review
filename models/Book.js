@@ -47,8 +47,7 @@ Book.init(
             },
         },
     },
-    // Restructured the model so that modifiers/options appear in a separate {} section 
-    // in keeping with sequelize manual and prior working projects.
+
     {
         sequelize,
         timestamps: true,

@@ -19,7 +19,7 @@ router.get('/', withAuth, asyncHandler(async (req, res) => {
 router.get('/:id', withAuth, async (req, res) => {
     try {
         const reviewsData = await Review.findByPk(req.params.id, {
-            include: [{ model: Review }]
+            include: [{ model: User, attributes: ['name'] }]
         });
 
         if (!reviewsData) {
@@ -39,7 +39,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const reviewsData = await Review.create({
             ...req.body,
-            user_id: req.session.user_id,
+            user_id: req.session.user_id, // uncomment for testing
         });
 
         res.status(200).json(reviewsData);
@@ -57,7 +57,7 @@ router.put('/:id', withAuth, async (req, res) => {
         }
         await Review.update(req.body, {
             where: {
-                id: req.params.id
+                review_id: req.params.id
             }
         });
         res.status(200).json(reviewsData)
@@ -73,8 +73,8 @@ router.delete('/:id', withAuth, async (req, res) => {
     try {
         const reviewsData = await Review.destroy({
             where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
+                review_id: req.params.id,
+                user_id: req.session.user_id, // uncomment for testing
             },
         });
         if (!reviewsData) {
