@@ -4,14 +4,13 @@ const withAuth = require('../../utils/auth');
 const asyncHandler = require('express-async-handler');
 
 
-//place holders until I know where im getting this info from
+//temp holder
 const newBookOBJ = {id: '', title: '', author: '', desc: '',coverIMG: '', genre: '', pubDate: '', isbn: '',}
 
 //Creates book entry in DB
 router.post('/', withAuth, async (req, res) => {
     try {
         const bookData = await Book.create({
-            id: newBookOBJ.id,
             title: newBookOBJ.title,
             author: newBookOBJ.author,
             genre: newBookOBJ.genre,
