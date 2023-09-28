@@ -64,8 +64,8 @@
           <input class="form-control me-2" id="searchInputField" type="search" placeholder="Title" aria-label="Search">
           {{!-- <button class="btn btn-outline-success" id="search" type="submit">Search</button> --}}
           
-          {{!-- //changed button// --}}
-          <button class="btn btn-primary" type="button">Button</button>
+          {{!-- //changed button// //added ID to button for js use\\ --}}
+          <button class="btn btn-primary" id = "searchBTN" type="button">Button</button>
 
         </form>
       </div>
@@ -92,6 +92,9 @@
     crossorigin="anonymous"></script>
   {{!-- //added rating script// --}}
   <script src="js/addons/rating.js"></script>
+
+  {{!-- Added API script--}}
+  <script src="../../public/js/booksAPI.js"></script>
 
 
 </body>
