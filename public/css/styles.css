@@ -2,3 +2,89 @@
 #signUp {
   right: 5em;
 }
+
+.flex-container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+header {
+  flex: 0 1 auto;
+  padding-top: 15px;
+  
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+footer {
+  flex: 0 1 40px;
+ 
+}
+
+.full-height {
+  height:100%;
+}
+
+body {
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: lightskyblue
+}
+
+
+
+.button-width {
+  width: 6em;
+  margin: 10px;
+}
+
+.green-button-width {
+
+  width: 8em;
+  margin: 10px;
+}
+
+#banner {
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  max-width:40%;
+}
+
+.input-width {
+
+  max-width: 25em;
+}
+
+#customContent {
+
+  height:100%;
+  padding: 10px;
+ 
+}
+
+nav {
+
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Layout on index.handlebars page */
+#left-buffer {
+  width:5%;
+}
+
+#right-buffer {
+
+  width: 8%;
+}
+#sort-button-div {
+  width: 8%;
+}
+#main-div {
+  width:77%;
+}

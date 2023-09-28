@@ -21,68 +21,66 @@
       Next level, nav bar contains an add book button and a search field.
       Button: position-absolute top-0 end-0
     -->
+  <div class="flex-container">
 
-  <div class="container">
+    <header>
 
-    <div class="position-relative">
-      {{#if loggedIn}}
-      <button type="button" id="logout"
-        class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Logout</button>
-      {{else}}
-      <button type="button" id="signUp" class="btn btn-primary position-absolute top-50 translate-middle-y">Sign
-        Up</button>
-      
-      <button type="button" id="login"
-        class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Login</button>
-      {{/if}}
-
-      {{!-- //added padding abobe h1//--}}
-      <ul></ul>
-      <h1 id="banner" class="text-center mb-3">Book Worm Library</h1>
-      <hr>
-    </div>
-
-    <!-- Optional navigation bar -->
-    {{!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
-      </ul>
-    </nav> --}}
-
-
-
-    {{!-- //added nav bar --}}
-
-    <nav class="navbar bg-body-tertiary mb-3">
-      <div class="container-fluid">
-
-        <button type="button" id="addBook" class="btn btn-primary">Add Book</button>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" id="searchInputField" type="search" placeholder="Title" aria-label="Search">
-          {{!-- <button class="btn btn-outline-success" id="search" type="submit">Search</button> --}}
-          
-          {{!-- //changed button// --}}
-          <button class="btn btn-primary" type="button">Button</button>
-
-        </form>
+    <div class="clearfix">
+        {{#if loggedIn}}
+        <button type="button" id="logout" class="btn btn-primary float-end button-width">Logout</button>
+        {{else}}
+        <button type="button" id="signUp" class="btn btn-primary shadow-p float-end button-width">Sign Up</button>
+        <button type="button" id="login" class="btn btn-primary shadow-p float-end button-width">Login</button>
+        {{/if}}
+        <h1 id="banner" class="text-center mb-3">Book Worm Library</h1>
+        <hr>
       </div>
-      <hr>
-    </nav>
+      
+
+      <!-- Optional navigation bar -->
+      {{!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        </ul>
+      </nav> --}}
+
+
+
+      {{!-- //added nav bar --}}
+
+      <nav class="navbar bg-info-subtle shadow-p mb-3">
+        <div class="container-fluid">
+
+          <button type="button" id="addBook" class="btn btn-primary shadow-sm">Add Book</button>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 shadow-sm" id="searchInputField" type="search" placeholder="Title" aria-label="Search">
+            {{!-- <button class="btn btn-outline-success" id="search" type="submit">Search</button> --}}
+            
+            {{!-- //changed button// --}}
+            <button class="btn btn-primary shadow-sm" type="button">Search</button>
+
+          </form>
+        </div>
+        <hr>
+      </nav>
+    </header>
+
+
+    <!-- Main content placeholder -->
+    <main>
+      {{{body}}}
+    </main>
+
+    <!-- Optional footer -->
+    <footer>
+      <hr> 
+      <p>&copy; 2023 Book Review App. All rights reserved.</p>
+    </footer>
+
   </div>
-
-
-  <!-- Main content placeholder -->
-  <div class="container">
-    {{{body}}}
-  </div>
-
-  <!-- Optional footer -->
-  <footer class="position-fixed bottom-0">
-    <p>&copy; 2023 Book Review App. All rights reserved.</p>
-  </footer>
 
   <!-- Optional JavaScript files -->
 
