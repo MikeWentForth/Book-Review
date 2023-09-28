@@ -46,7 +46,7 @@ router.get('/review', async (req, res) => {
   // XXXXXX
   // Should test whether already logged in....
 
-  res.render("review",{
+  res.render("review", {
     layout: "main",
     loggedIn: req.session.logged_in === true
   });
@@ -106,6 +106,6 @@ router.post('/logout', (req, res) => {
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
-// })
+// });
 
 module.exports = router;
