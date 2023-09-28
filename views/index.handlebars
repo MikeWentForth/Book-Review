@@ -5,23 +5,31 @@
     -->
 
 
-<div class="row"> <!-- row -->
-    <div class="col"> <!-- left button menu -->
-        <h3 class="""">Sort Output By...</h3>
-        <button class="btn btn-outline-success w-100 mb-2" id="mostRecent" type="submit">Most Recent</button>
-        <button class="btn btn-outline-success w-100 mb-2" id="highestRated" type="submit">Highest Rated</button>
-        <button class="btn btn-outline-success w-100 mb-2" id="lowestRated" type="submit">Lowest Rated</button>
+<div class="row full-height"> <!-- row -->
 
-    </div>
-    <div class="col-9 bg-light" id="customContent"> <!-- Book review area -->
-        <h3>To get started...</h3>
+    <div id="left-buffer"></div> <!-- left buffer div -->
 
-        <p>Enter a title in the search box, or click one of the sorting buttons on the left to begin.</p>
-        <p>You may also add a book by clicking the "Add Book" button, above.</p>
+    <div id="sort-button-div"> <!-- left button menu -->
+        <h5 class="">Sort output by</h5>
+        <hr>
+        <button class="btn btn-success shadow-sm green-button-width w-100 mb-2 " id="mostRecent" type="submit">Most Recent</button>
+        <button class="btn btn-success shadow-sm green-button-width w-100 mb-2" id="highestRated" type="submit">Highest Rated</button>
+        <button class="btn btn-success shadow-sm green-button-width w-100 mb-2" id="lowestRated" type="submit">Lowest Rated</button>
+ </div>
+    
+    <div id="main-div"> <!-- Book review area -->
+        <div class="bg-light shadow-lg black " id="customContent">
+            <h4>To get started...</h4>
 
-        <div class="container">
-            <span id="rateMe4" class="feedback"></span>
+            <p>Enter a title in the search box, or click one of the sorting buttons on the left to begin.</p>
+            <p>You may also add a book by clicking the "Add Book" button, above.</p>
+
+            <div class="container">
+                <span id="rateMe4" class="feedback"></span>
+            </div>
         </div>
 
     </div>
+    <div id="right-buffer"></div>
+
 </div>
