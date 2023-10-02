@@ -3,21 +3,43 @@
         Column of buttons on left.
         Book review content in center-right.
     -->
-
+<div class="d-flex flex-row sort-button-row  align-items-center">
+    <div class="p2">
+    <h5>Sort output by:</h5>
+    </div>
+    <div class="p2">
+    <button class="btn btn-success shadow green-button-width mb-2 " id="mostRecent" type="submit">Most
+        Recent</button>
+        </div>
+    <div class="p2">
+    <button class="btn btn-success shadow green-button-width mb-2" id="highestRated" type="submit">Highest
+        Rated</button>
+            </div>
+    <div class="p2">
+    <button class="btn btn-success shadow green-button-width mb-2" id="lowestRated" type="submit">Lowest
+        Rated</button>
+    </div>
+</div>
 
 <div class="row full-height"> <!-- row -->
 
     <div id="left-buffer"></div> <!-- left buffer div -->
 
-    <div id="sort-button-div"> <!-- left button menu -->
-       
+<!-- left button menu -->
+    <div id="sort-button-div"> 
+
+        <!--
         <h5 class="">Sort output by</h5>
-        
-        <button class="btn btn-success shadow green-button-width w-100 mb-2 " id="mostRecent" type="submit">Most Recent</button>
-        <button class="btn btn-success shadow green-button-width w-100 mb-2" id="highestRated" type="submit">Highest Rated</button>
-        <button class="btn btn-success shadow green-button-width w-100 mb-2" id="lowestRated" type="submit">Lowest Rated</button>
- </div>
-    
+
+        <button class="btn btn-success shadow green-button-width w-100 mb-2 " id="mostRecent" type="submit">Most
+            Recent</button>
+        <button class="btn btn-success shadow green-button-width w-100 mb-2" id="highestRated" type="submit">Highest
+            Rated</button>
+        <button class="btn btn-success shadow green-button-width w-100 mb-2" id="lowestRated" type="submit">Lowest
+            Rated</button>
+        -->
+    </div>
+
     <div id="main-div"> <!-- Book review area -->
         <div class="bg-light shadow-lg black " id="customContent">
             <h4>To get started...</h4>
@@ -25,12 +47,22 @@
             <p>Enter a title in the search box, or click one of the sorting buttons on the left to begin.</p>
             <p>You may also add a book by clicking the "Add Book" button, above.</p>
 
-            <div class="container">
-                <span id="rateMe4" class="feedback"></span>
-            </div>
+            <h4>Rating System</h4>
+
+            <label for="input-2" class="control-label"></label>
+            <input id="input-2" name="input-2" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1">
+            
+
         </div>
 
     </div>
     <div id="right-buffer"></div>
 
+
+  
 </div>
+
+ <footer class="foot-margin">
+      <hr>
+      <p>&copy; 2023 Book Review App. All rights reserved.</p>
+    </footer>

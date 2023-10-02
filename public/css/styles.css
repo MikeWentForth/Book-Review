@@ -20,7 +20,7 @@ main {
 }
 
 footer {
-  flex: 0 1 40px;
+  flex: 0 1 auto;
  
 }
 
@@ -43,9 +43,16 @@ body {
 
 .green-button-width {
 
-  width: 8em;
-  margin: 10px;
+  width: 7em;
+  margin: 16px;
 }
+
+.sort-button-row {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+} 
 
 #banner {
   display: block;
@@ -87,4 +94,9 @@ nav {
 }
 #main-div {
   width:77%;
+}
+
+#footer-margin {
+
+  padding-bottom: 10px;
 }
