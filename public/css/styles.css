@@ -6,7 +6,7 @@
 .flex-container {
   display: flex;
   flex-flow: column;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 
 header {
@@ -20,7 +20,7 @@ main {
 }
 
 footer {
-  flex: 0 1 auto;
+
  
 }
 
@@ -94,6 +94,7 @@ nav {
 }
 #main-div {
   width:77%;
+  min-height: 45em;
 }
 
 #footer-margin {
