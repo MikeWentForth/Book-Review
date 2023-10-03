@@ -49,13 +49,14 @@ if (e) {
   });
 }
 
+//Commented out because search functionality was added
 // SEARCH BUTTON CLICKED
-e = document.getElementById("search");
-if (e) {
-  e.addEventListener("click", function () {
-    alert("search was clicked.")
-  });
-}
+// e = document.getElementById("searchBTN");
+// if (e) {
+//   e.addEventListener("click", function () {
+//     alert("search was clicked.")
+//   });
+// }
 
 
 // SORT BY MOST RECENT
@@ -140,6 +141,7 @@ const logout = async () => {
   }
 };
 
-document.querySelector('#logout').addEventListener('click', logout);
+//commented out b/c was causing errors
+//document.querySelector('#logout').addEventListener('click', logout);
 
 

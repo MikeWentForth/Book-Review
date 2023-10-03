@@ -100,3 +100,34 @@ nav {
 
   padding-bottom: 10px;
 }
+
+/*
+    CSS for displaying book info
+*/
+
+
+.Book-Info{
+  border: 5px;
+  border-style: inset;
+  margin: 10px;
+}
+
+
+
+#bookCover{
+  border: 5px;
+  border-style: double;
+  float: left;
+}
+
+.book-cover-info{
+  border: 5px;
+  border-style: outset;
+  float: left;
+}
+
+.book-desc{
+  
+  display: inline-block;
+  position: relative;
+}

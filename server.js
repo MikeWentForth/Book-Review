@@ -10,8 +10,18 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const gracefulShutdown = require('http-graceful-shutdown');
 const errorHandler = require('./utils/errorHandler');
 
+var cookieParser = require('cookie-parser')
+
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(cookieParser())
+app.use(session({
+  resave:true,
+  saveUninitialized:true,
+  secret:process.env.secret,
+  cookie:{maxAge:3600000*24}
+}))
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -49,3 +59,4 @@ sequelize.sync({ force: false }).then(() => {
   // Implementing gracefulShutdown
   gracefulShutdown(server);
 });
+
