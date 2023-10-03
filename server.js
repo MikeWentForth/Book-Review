@@ -19,9 +19,12 @@ app.use(cookieParser())
 app.use(session({
   resave:true,
   saveUninitialized:true,
-  secret:process.env.secret,
-  cookie:{maxAge:3600000*24}
-}))
+  secret:process.env.SESSION_SECRET,
+  cookie:{maxAge:3600000*24},
+  store: new SequelizeStore({
+    db: sequelize
+  })
+}));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -33,17 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 // Use static public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const sess = {
-  secret: process.env.SESSION_SECRET,
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
-};
 
-app.use(session(sess));
+
+
 
 // Use routes
 app.use(routes);
