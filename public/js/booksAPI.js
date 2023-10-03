@@ -36,9 +36,9 @@ async function searchBooks(searchType){
     secondBook = search.items[1];
     thirdBook = search.items[2];
 
-    console.log(firstBook);
-
+    
     displayBook(firstBook);
+    
 }
 
 //Searches by book ID assigned by API 
@@ -70,32 +70,10 @@ function setSearchAuthor(){
 function displayBook(bookObjData){
 
     document.getElementById("bookCover").src = bookObjData.volumeInfo.imageLinks.smallThumbnail;
-    document.getElementById("title").innerHTML = bookObjData.volumeInfo.title;
-    document.getElementById("pubDate").innerHTML = bookObjData.volumeInfo.publishedDate;
-    document.getElementById("authors").innerHTML = bookObjData.volumeInfo.authors;
-    document.getElementById("pageNum").innerHTML = bookObjData.volumeInfo.pageCount;    
+    document.getElementById("title").innerHTML = 'Title: ' + bookObjData.volumeInfo.title;
+    document.getElementById("pubDate").innerHTML = 'Publishing Date: ' + bookObjData.volumeInfo.publishedDate;
+    document.getElementById("authors").innerHTML = 'Author(s): ' + bookObjData.volumeInfo.authors;
+    document.getElementById("pageNum").innerHTML = 'Number of Pages:' + bookObjData.volumeInfo.pageCount;    
     document.getElementById("desc").innerHTML = bookObjData.volumeInfo.description;    
-    document.getElementById("genre").innerHTML = bookObjData.volumeInfo.categories;
-    
-
+    document.getElementById("genre").innerHTML = 'Genre: ' + bookObjData.volumeInfo.categories;
 }
-
-
-    //Stuff to help me not get lost:
-        // //Goes down one obj layer for simplisity
-        // const book = bookObjData.volumeInfo;
-
-        // const title = book.title;
-        // const pageNums = book.pageCount;
-        // const pubDate = book.publishedDate;
-        // const desc = book.description;
-
-        // //these are given as an array
-        // const authors = book.authors; 
-        // const genre = book.categories;
-
-/* things im using for this rn lol
-https://developers.google.com/books/docs/v1/using
-https://console.cloud.google.com/apis/dashboard?project=code-bootcamp-400202
-
-*/
