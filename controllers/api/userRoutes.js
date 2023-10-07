@@ -1,59 +1,21 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const asyncHandler = require('express-async-handler');
 
+// CREATE new user
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
 
-router.post('/', asyncHandler(async (req, res) => {
-  const userData = await User.create(req.body);
-  req.session.save(() => {
-    req.session.user_id = userData.id;
-    req.session.logged_in = true;
-    res.status(200).json(userData);
-  });
-}));
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.loggedIn = true;
 
-// Adding a get-login route to display the login form page when the user
-// clicks the login button on any of the common pages.
-router.get('/login', async (req, res) => {
-
-  // XXXXXX
-  // Should test whether already logged in....
-
-  res.render("login", {
-    layout: "main",
-    loggedIn: req.session.logged_in === true
-  });
-
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
-
-// Adding a signup route to display the signup form page....
-router.get('/signup', async (req, res) => {
-
-  // XXXXXX
-  // Should test whether already logged in....
-
-  res.render("signup", {
-    layout: "main",
-    loggedIn: req.session.logged_in === true
-  });
-
-});
-
-
-// Adding a review route to display the review form page....
-router.get('/review', async (req, res) => {
-
-  // XXXXXX
-  // Should test whether already logged in....
-
-  res.render("review", {
-    layout: "main",
-    loggedIn: req.session.logged_in === true
-  });
-
-});
-
-
 
 router.post('/login', async (req, res) => {
   try {
@@ -77,7 +39,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
@@ -87,8 +49,10 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
+//async handler used here
 router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });

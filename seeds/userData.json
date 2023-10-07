@@ -1,19 +1,16 @@
 [
   {
     "name": "Sal",
-    "username": "firstuserSal",
     "email": "sal@hotmail.com",
     "password": "password12345"
   },
   {
     "name": "Lernantino",
-    "username": "seconduserLernantino",
     "email": "lernantino@gmail.com",
     "password": "password12345"
   },
   {
     "name": "Amiko",
-    "username": "thirduserAmiko",
     "email": "amiko2k20@aol.com",
     "password": "password12345"
   }

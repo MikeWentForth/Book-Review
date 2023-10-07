@@ -16,7 +16,7 @@ router.get('/', withAuth, asyncHandler(async (req, res) => {
     });
     const reviews = reviewsData.map((review) => review.get({ plain: true }));
 
-    res.render('profile', { books, reviews });
+    res.render('userHome', { books, reviews });
 }));
 
 router.post('/', withAuth, async (req, res) => {
