@@ -99,7 +99,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/main'); //no profile page set up yet, change to that once made?
+      document.location.replace('/main');
     } else {
       alert(response.statusText);
     }
@@ -114,14 +114,14 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#pwSU').value.trim();
 
   if (name && email && password) {
-    const response = await fetch('/api/users/signup', {
+    const response = await fetch('/api/users/', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/main'); //no profile page set up yet, change to that once made?
+      document.location.replace('/main');
     } else {
       alert(response.statusText);
     }

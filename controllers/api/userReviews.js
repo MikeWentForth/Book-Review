@@ -1,37 +1,6 @@
 const router = require('express').Router();
-const { User, Review } = require('../../models');
+const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
-const asyncHandler = require('express-async-handler');
-
-// GET all user reviews
-router.get('/', withAuth, asyncHandler(async (req, res) => {
-    const reviewsData = await Review.findAll({
-        include: [{
-            model: User,
-            attributes: ['name'],
-        },],
-    });
-    const reviews = reviewsData.map((reviews) => reviews.get({ plain: true }));
-    res.render('homepage', { reviews: reviewsData });
-}));
-
-// GET a single review
-router.get('/:id', withAuth, async (req, res) => {
-    try {
-        const reviewsData = await Review.findByPk(req.params.id, {
-            include: [{ model: User, attributes: ['name'] }]
-        });
-
-        if (!reviewsData) {
-            res.status(404).json({ message: 'No review found with this id!' });
-            return;
-        }
-
-        res.status(200).json(reviewsData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 
 // post method
