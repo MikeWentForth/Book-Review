@@ -12,7 +12,6 @@
 header {
   flex: 0 1 auto;
   padding-top: 15px;
-  
 }
 
 main {
@@ -20,7 +19,7 @@ main {
 }
 
 footer {
-  flex: 0 1 40px;
+
  
 }
 
@@ -43,9 +42,16 @@ body {
 
 .green-button-width {
 
-  width: 8em;
-  margin: 10px;
+  width: 7em;
+  margin: 16px;
 }
+
+.sort-button-row {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+} 
 
 #banner {
   display: block;
@@ -87,4 +93,41 @@ nav {
 }
 #main-div {
   width:77%;
+  min-height: 40em;
+}
+
+#footer-margin {
+
+  padding-bottom: 10px;
+}
+
+/*
+    CSS for displaying book info
+*/
+
+
+.Book-Info{
+  border: 5px;
+  border-style: inset;
+  margin: 10px;
+}
+
+
+
+#bookCover{
+  border: 5px;
+  border-style: double;
+  float: left;
+}
+
+.book-cover-info{
+  border: 5px;
+  border-style: outset;
+  float: left;
+}
+
+.book-desc{
+  
+  display: inline-block;
+  position: relative;
 }
