@@ -50,7 +50,8 @@ router.post('/login', async (req, res) => {
 });
 
 
-//async handler used here
+
+// Logout user
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -60,6 +61,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
 
 // API TESTING ROUTE - uncomment line below and comment above if testing backend only
 

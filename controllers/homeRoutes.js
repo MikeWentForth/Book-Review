@@ -15,7 +15,7 @@ router.get('/', asyncHandler(async (req, res) => {
     });
     const reviews = reviewsData.map((reviews) => reviews.get({ plain: true }));
     res.render('homepage',
-        { reviews: reviewsData, loggedIn: req.session.loggedIn, });
+        { reviews, loggedIn: req.session.loggedIn, });
 
 }));
 
