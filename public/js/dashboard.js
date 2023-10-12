@@ -1,7 +1,7 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#book-name').value.trim();
+    const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#review-desc').value.trim();
 
     if (title && description) {
