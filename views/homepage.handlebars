@@ -1,8 +1,42 @@
+<div id="main-div"> <!-- Book review area -->
+    <div class="bg-light shadow-lg black " id="customContent">
+        <h4>To get started...</h4>
+
+        <p>Enter a title in the search box, or click one of the sorting buttons on the left to begin.</p>
+        <p>You may also add a book by clicking the "Add Book" button, above.</p>
+
+        <h4>Rating System</h4>
+
+        <label for="input-2" class="control-label"></label>
+        <input id="input-2" name="input-2" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1">
+
+        <section class="Book-Info">
+
+            <img id="bookCover" src="" alt="Book Cover">
+            <section class="book-cover-info">
+                <p id="title"></p>
+                <p id="pubDate"></p>
+                <p id="authors"></p>
+                <p id="pageNum"></p>
+
+            </section>
+            <br>
+            <section class="book-desc">
+                <p id="genre"></p>
+                <p id="desc"></p>
+            </section>
+
+        </section>
+    </div>
+
+</div>
+
+<h1>Books our users have reviewed: </h1>
 {{#each reviews as |review| }}
 <div class="row mb-4 project">
     <div class="col-md-5">
         <h2>
-            <a href="/review/{{review.id}}">{{review.title}}</a>
+            <a href="/reviews/{{review.id}}">{{review.title}}</a>
         </h2>
         <p>Created by {{review.user.name}}</p>
     </div>
